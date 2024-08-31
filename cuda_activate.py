@@ -12,3 +12,6 @@ class CudaChecker:
         if self.cuda_available:
             print("Cantidad de GPUs disponibles:", torch.cuda.device_count())
             print("Nombre de la GPU:", torch.cuda.get_device_name(0))
+
+CudaChecker().check_cuda_availability()
+CudaChecker().print_gpu_details()

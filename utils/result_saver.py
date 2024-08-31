@@ -4,24 +4,25 @@ from utils.image_featured_extractor import ImageFeatureExtractor
 from utils.directory_manager import DirectoryManager
 
 NAMES_IMAGE_WORKS = ['vmild_ALZ', 'mild_ALZ', 'moderate_ALZ', 'non_ALZ']
-FILE_PATH = [r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\data\v_mild.npy',
-             r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\data\mild.npy',
-             r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\data\moderate.npy',
-             r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\data\non.npy']
-FILE_PATH_GENERAL = r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\data\alz.npy'
+FILE_PATH = [r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\data\v_mild.npy',
+             r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\data\mild.npy',
+             r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\data\moderate.npy',
+             r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\data\non.npy']
+FILE_PATH_GENERAL = r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\data\alz.npy'
 
 class ResultSaver:
     def __init__(self, categories):
         self.file_paths = FILE_PATH
         self.categories = categories
         self.directory = DirectoryManager
+        self.extract_feature = ImageFeatureExtractor()
 
     def process_features(self, save_files):
         print('Estamos procesando las imágenes')
         results = {}
         for index, (category, files) in enumerate(self.categories.items()):
             print(f'Procesando categoría: {category}')
-            features = [ImageFeatureExtractor(filename).extract_feature() for filename in tqdm(files)]
+            features = [self.extract_feature.extract_feature(filename) for filename in tqdm(files)]
             if features:
                 features_array = np.array(features)
                 results[NAMES_IMAGE_WORKS[index]] = features_array

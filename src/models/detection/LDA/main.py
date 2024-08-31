@@ -8,9 +8,9 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDAModel
 
 class LDA:
     def __init__(self, x_train, x_test, y_train, y_test):
-        self.directory = DirectoryManager(r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\Models\detection\LDA\info.txt')
-        self.directory_path = r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\Models\detection\LDA'
-        self.directory_path_info = r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\Models\detection\LDA\info.txt'
+        self.directory = DirectoryManager(r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\Models\detection\LDA\info.txt')
+        self.directory_path = r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\Models\detection\LDA'
+        self.directory_path_info = r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\Models\detection\LDA\info.txt'
         self.lda_model = None
         self.X_train_LDA = None
         self.X_test_LDA = None
@@ -85,7 +85,6 @@ class LDA:
         plt.xlabel('Predicted Labels')
         path_matrix = os.path.join(self.directory_path, 'LDA_matrix.jpg')
         plt.savefig(path_matrix, format='jpg')
-        plt.savefig(self.directory_path)
         plt.close()
         print(f"Matriz de confusión guardada como imagen en '{self.directory_path}'.")
         

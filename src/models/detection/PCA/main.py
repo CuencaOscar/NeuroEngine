@@ -3,20 +3,18 @@ import joblib
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import decomposition
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
 from utils.directory_manager import DirectoryManager
 
 class PCA:
-    def __init__(self, non_alz, alz):
-        self.directory_path = r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\assets\Models\detection\PCA'
+    def __init__(self, non_alz, alz, x_train, x_test, y_train, y_test):
+        self.directory_path = r'C:\Users\ocuen\Developer\Repos\NeuroEngine\assets\Models\detection\PCA'
         self.directory = DirectoryManager(self.directory_path)
         self.non_alz = non_alz
         self.alz = alz
-        self.X_train = None
-        self.X_test = None
-        self.y_train = None
-        self.y_test = None
+        self.X_train = x_train
+        self.X_test = x_test
+        self.y_train = y_train
+        self.y_test = y_test
         self.pca_model = None
         self.k = None
         self.var_cumu = None
@@ -24,7 +22,6 @@ class PCA:
     def begin(self):
         print('Inicia el proceso')
         self.__create_directory()
-        self.__prepare_model()
         self.__find_optimal_pca_components()
         self.__save_model()
         self.__save_figure()
@@ -33,15 +30,6 @@ class PCA:
     def __create_directory(self):
         print('Creamos el directorio')
         self.directory.create_directory()
-
-    def __prepare_model(self):
-        print('Preparamos el modelo')
-        all_data = np.concatenate((np.array(self.non_alz), np.array(self.alz)))
-        all_data = all_data.reshape(all_data.shape[0], np.product(all_data.shape[1:]))
-        scaler = StandardScaler()
-        X = scaler.fit_transform(all_data)
-        y = [0] * len(self.non_alz) + [1] * len(self.alz)
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.2)
 
     def __find_optimal_pca_components(self):
         print('Encontramos los componentes')

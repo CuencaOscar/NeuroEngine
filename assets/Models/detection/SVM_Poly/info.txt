@@ -1,0 +1,22 @@
+Total processed images: 6400
+Label distribution: (array([0, 1]), array([3200, 3200], dtype=int64))
+Number of images in "non": 3200
+Number of images in "ALZ" (very_mild + mild + moderate)::                        3200
+Total processed images: 6400
+Example data from one image (flattened array): [0 0 0 0 0 0 0 0 0 0]
+Training set size: 5120
+Test set size: 1280
+--- Training Data ---
+Accuracy : 0.9736328125
+Precision: 0.9683275395905755
+Recall   : 0.979296875
+F1 Score : 0.973781316760536
+Confusion Matrix: [[2478   82]
+ [  53 2507]]
+--- Testing Data ---
+Accuracy : 0.94765625
+Precision: 0.9414483821263482
+Recall   : 0.9546875
+F1 Score : 0.948021722265322
+Confusion Matrix: [[602  38]
+ [ 29 611]]

@@ -1,12 +1,8 @@
-# categorized_image_loader.py
 from src.Data.image_loader import ImageLoader
-
-
-# Este codigo lo que hace es obtener las ritas edlas imagenes de toda la base de datos
 
 class CategorizedImageLoader:
     def __init__(self):
-        self.base_path = r'C:\Users\ocuen\Developer\Repos\NeuroNet-Engine\Dataset'
+        self.base_path = r'C:\Users\ocuen\Developer\Repos\NeuroEngine\Dataset'
         self.categories = ['Very_Mild_Demented',
                            'Mild_Demented',
                            'Moderate_Demented',
