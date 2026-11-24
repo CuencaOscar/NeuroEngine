@@ -12,6 +12,8 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "tensorflow-cpu"
+        versions: [">=2.17"]
       - dependency-name: "numpy"
         versions: [">=2"]
       - dependency-name: "pytest"
