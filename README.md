@@ -15,10 +15,12 @@ at Universidad Técnica de Machala (UTMACH).
 
 ## How it works
 
-```
-Mobile app (React Native) ──► Firebase Storage ──► NeuroEngine (Flask) ──► CNN (Keras)
-          ▲                                                │
-          └──────────────── stage + probability ◄──────────┘
+```mermaid
+flowchart LR
+    app["📱 NeuroImage Insight<br/>React Native app"] -- "MRI slice" --> storage[("Firebase Storage")]
+    storage --> api["⚙️ NeuroEngine<br/>Flask API"]
+    api --> model["🧠 CNN<br/>TensorFlow / Keras"]
+    api -- "stage + probability" --> app
 ```
 
 1. The app uploads the MRI slice (or sends it directly to the API).
