@@ -10,6 +10,9 @@ at Universidad Técnica de Machala (UTMACH).
 
 > **Research project, not a medical device.** The results must not be used to diagnose or treat anyone.
 
+<p align="center"><img src="https://raw.githubusercontent.com/CuencaOscar/NeuroImage-Insight/master/docs/screenshots.png" alt="NeuroImage-Insight app powered by this API" width="900"></p>
+<p align="center"><sub>The <a href="https://github.com/CuencaOscar/NeuroImage-Insight">NeuroImage Insight</a> mobile app, powered by this API.</sub></p>
+
 ## How it works
 
 ```
